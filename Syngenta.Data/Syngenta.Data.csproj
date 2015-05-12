@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8882314-D1D8-4B6F-AA2D-9EF962B96171}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Syngenta.Data</RootNamespace>
+    <AssemblyName>Syngenta.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFRepository.cs" />
+    <Compile Include="Helpers\IRepositoryProvider.cs" />
+    <Compile Include="Helpers\RepositoryFactories.cs" />
+    <Compile Include="Helpers\RepositoryProvider.cs" />
+    <Compile Include="Migrations\201309051102103_InitialCreate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Migrations\201309051102103_InitialCreate.Designer.cs">
+      <DependentUpon>201309051102103_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309111230251_AddUserBookEntity.cs" />
+    <Compile Include="Migrations\201309111230251_AddUserBookEntity.Designer.cs">
+      <DependentUpon>201309111230251_AddUserBookEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309111536294_AddUserBookIndex.cs" />
+    <Compile Include="Migrations\201309111536294_AddUserBookIndex.Designer.cs">
+      <DependentUpon>201309111536294_AddUserBookIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309111653237_AddUserBookNewColumn.cs" />
+    <Compile Include="Migrations\201309111653237_AddUserBookNewColumn.Designer.cs">
+      <DependentUpon>201309111653237_AddUserBookNewColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309111715433_AddUserBookCompletedColumn.cs" />
+    <Compile Include="Migrations\201309111715433_AddUserBookCompletedColumn.Designer.cs">
+      <DependentUpon>201309111715433_AddUserBookCompletedColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309201503157_AddNewFieldToUserTable.cs" />
+    <Compile Include="Migrations\201309201503157_AddNewFieldToUserTable.Designer.cs">
+      <DependentUpon>201309201503157_AddNewFieldToUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309201517517_DropFieldIsDisableFromUserTable.cs" />
+    <Compile Include="Migrations\201309201517517_DropFieldIsDisableFromUserTable.Designer.cs">
+      <DependentUpon>201309201517517_DropFieldIsDisableFromUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309201519189_AddNewFieldToUserTable1.cs" />
+    <Compile Include="Migrations\201309201519189_AddNewFieldToUserTable1.Designer.cs">
+      <DependentUpon>201309201519189_AddNewFieldToUserTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309251118019_AddFieldIsAdminToUserTable.cs" />
+    <Compile Include="Migrations\201309251118019_AddFieldIsAdminToUserTable.Designer.cs">
+      <DependentUpon>201309251118019_AddFieldIsAdminToUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309301605179_AddEntityUserBookPage.cs" />
+    <Compile Include="Migrations\201309301605179_AddEntityUserBookPage.Designer.cs">
+      <DependentUpon>201309301605179_AddEntityUserBookPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310231731589_DeleteSelectedPageFromUserBookTable.cs" />
+    <Compile Include="Migrations\201310231731589_DeleteSelectedPageFromUserBookTable.Designer.cs">
+      <DependentUpon>201310231731589_DeleteSelectedPageFromUserBookTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310281330420_AlterUserTable.cs" />
+    <Compile Include="Migrations\201310281330420_AlterUserTable.Designer.cs">
+      <DependentUpon>201310281330420_AlterUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310281332129_AddFieldsLoginDateToUserTable.cs" />
+    <Compile Include="Migrations\201310281332129_AddFieldsLoginDateToUserTable.Designer.cs">
+      <DependentUpon>201310281332129_AddFieldsLoginDateToUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310281356423_AddFieldsLoginDateToUsersTable.cs" />
+    <Compile Include="Migrations\201310281356423_AddFieldsLoginDateToUsersTable.Designer.cs">
+      <DependentUpon>201310281356423_AddFieldsLoginDateToUsersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310281600500_AlterFailedLoginAttemptTable.cs" />
+    <Compile Include="Migrations\201310281600500_AlterFailedLoginAttemptTable.Designer.cs">
+      <DependentUpon>201310281600500_AlterFailedLoginAttemptTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310281638154_AddUserModificationLogTable.cs" />
+    <Compile Include="Migrations\201310281638154_AddUserModificationLogTable.Designer.cs">
+      <DependentUpon>201310281638154_AddUserModificationLogTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310281639443_AddUserModificationLogTable1.cs" />
+    <Compile Include="Migrations\201310281639443_AddUserModificationLogTable1.Designer.cs">
+      <DependentUpon>201310281639443_AddUserModificationLogTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\EFRepository.cs" />
+    <Compile Include="Repositories\FailedLoginAttemptRepository.cs" />
+    <Compile Include="Repositories\UserBookPageRepository.cs" />
+    <Compile Include="Repositories\UserBookRepository.cs" />
+    <Compile Include="Repositories\UserModificationLogRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="SyngentaUow.cs" />
+    <Compile Include="SyngentaDbContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Syngenta.Core\Syngenta.Core.csproj">
+      <Project>{f9a38b07-3b8b-4ec5-a5db-cc5112222469}</Project>
+      <Name>Syngenta.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201309051102103_InitialCreate.resx">
+      <DependentUpon>201309051102103_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309111230251_AddUserBookEntity.resx">
+      <DependentUpon>201309111230251_AddUserBookEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309111536294_AddUserBookIndex.resx">
+      <DependentUpon>201309111536294_AddUserBookIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309111653237_AddUserBookNewColumn.resx">
+      <DependentUpon>201309111653237_AddUserBookNewColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309111715433_AddUserBookCompletedColumn.resx">
+      <DependentUpon>201309111715433_AddUserBookCompletedColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309201503157_AddNewFieldToUserTable.resx">
+      <DependentUpon>201309201503157_AddNewFieldToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309201517517_DropFieldIsDisableFromUserTable.resx">
+      <DependentUpon>201309201517517_DropFieldIsDisableFromUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309201519189_AddNewFieldToUserTable1.resx">
+      <DependentUpon>201309201519189_AddNewFieldToUserTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309251118019_AddFieldIsAdminToUserTable.resx">
+      <DependentUpon>201309251118019_AddFieldIsAdminToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309301605179_AddEntityUserBookPage.resx">
+      <DependentUpon>201309301605179_AddEntityUserBookPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310231731589_DeleteSelectedPageFromUserBookTable.resx">
+      <DependentUpon>201310231731589_DeleteSelectedPageFromUserBookTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310281330420_AlterUserTable.resx">
+      <DependentUpon>201310281330420_AlterUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310281332129_AddFieldsLoginDateToUserTable.resx">
+      <DependentUpon>201310281332129_AddFieldsLoginDateToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310281356423_AddFieldsLoginDateToUsersTable.resx">
+      <DependentUpon>201310281356423_AddFieldsLoginDateToUsersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310281600500_AlterFailedLoginAttemptTable.resx">
+      <DependentUpon>201310281600500_AlterFailedLoginAttemptTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310281638154_AddUserModificationLogTable.resx">
+      <DependentUpon>201310281638154_AddUserModificationLogTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310281639443_AddUserModificationLogTable1.resx">
+      <DependentUpon>201310281639443_AddUserModificationLogTable1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

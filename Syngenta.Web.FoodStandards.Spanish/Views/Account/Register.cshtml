@@ -1,0 +1,78 @@
+﻿@model Syngenta.Core.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+@section Banner{
+    <div id="imageRotation" class="darkOrangeBackground">
+        <img class="floatLeft" src="~/images/headers/register-image.jpg" width="640" height="250" alt="" />
+        <div id="introText">
+            <p class="spaceBefore60"><strong>&quot;Comprometidos con la seguridad alimentaria y la calidad de los alimentos. Una guía sobre los residuos de los productos de protección de cultivos&quot;</strong> ha sido creado gracias a la innovadora tecnología de publicación de libros electrónicos que le permite seleccionar únicamente páginas en el nivel de detalle requerido en cada una de las diferentes áreas temáticas. Puede seleccionar, guardar, imprimir o enviar sus propias versiones, de acuerdo con las demandas de sus clientes. </p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+}
+<div id="mainContent" class="register">
+    <div id="col1">
+        <p>Registre aquí sus datos para acceder a la página web. El sitio web sólo está disponible para los empleados de Syngenta. Una vez registrado, un correo electrónico de verificación será enviado a su dirección de correo electrónico en Syngenta con su contraseña. Una vez que haya recibido la contraseña, puede utilizar el proceso de conexión rápida para futuras visitas.</p>
+    </div>
+    <div id="col2">
+        <h2>Registre aquí sus datos</h2>
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "registration" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <table id="regTable" width="500" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="105" align="left" valign="middle">
+                        <label for="firstname">Nombre</label>
+                    </td>
+                    <td width="285" align="left">
+                        @Html.TextBoxFor(user => user.Forename, new { @class = "width275", Name = "Forename", Id = "Forename", autocomplete = "off" })
+                    </td>
+                    <td width="15" align="left">&nbsp;</td>
+                    <td align="left">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="105" align="left" valign="middle">
+                        <label for="surname">Apellido</label>
+                    </td>
+                    <td width="285" align="left">
+                        @Html.TextBoxFor(user => user.Surname, new { @class = "width275", Name = "Surname", Id = "Surname", autocomplete = "off" })
+                    </td>
+                    <td width="15" align="left">&nbsp;</td>
+                    <td align="left">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="105" align="left" valign="middle">
+                        <label for="email">Dirección de email de Syngenta</label>
+                    </td>
+                    <td width="285" align="left">
+                        @Html.TextBoxFor(user => user.Email, new { @class = "width275", Name = "Email", Id = "Email", autocomplete = "off" })
+                    </td>
+                    <td width="15" align="left">&nbsp;</td>
+                    <td align="left">           
+                        <a href="#" id="register">Continuar <img src="~/images/common/orangearrowongrey.gif" width="15" height="15" alt="" /></a>            
+                    </td>
+                </tr>
+            </table>            
+        }
+        <p><em>Todos los campos son obligatorios</em></p>        
+        <p class="errorMessage hide highlite">Rellene los campos resaltados en rojo.</p>
+        <p class="errorMessage hide email">La dirección de correo electrónico tiene un formato incorrecto; por favor, corrija el formato y vuelva a intentarlo.</p>
+        <p class="errorMessage hide invalid">La dirección de correo electrónico no es válida.</p>
+        <p class="errorMessage server">@ViewBag.Message</p>
+        @Html.ValidationSummary()
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div class="height30"></div>
+
+@section Body {
+    <script src="~/scripts/page-specific/register.js" type="text/javascript"></script>
+}

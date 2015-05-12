@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@section Script{
+    @RenderSection("Scripts", false)  
+}
+
+@section Header{
+    
+    <div id="intranetLogoBar">
+        <div id="title" class="floatLeft">
+            <h1><span class="lightGreen">my</span><span class="darkGreen">Syngenta</span> &nbsp;&nbsp;&#8222;Die Sicherung der Nahrungsmittelversorgung: Sicherheit und Qualität&#8220;. Ein Leitfaden zu Rückständen von Pflanzenschutzmitteln.</h1>
+        </div>
+        <div class="floatRight"><img src="~/images/intranet/intranet-logo.gif" width="71" height="69" alt="Syngenta" /></div>
+        <div class="clear"></div>
+    </div>
+    <div class="height10"></div>
+    <div class="clear"></div>
+    @RenderSection("Banner", false)
+    <div class="clear"></div>
+}
+
+@RenderBody()
+
+@RenderSection("Body", false)
+
+<div id="intranetFooter">
+    <div class="floatLeft">&copy; 2013 Syngenta International AG, Basel, Switzerland</div>
+    <div class="floatRight">
+        <a href="/">Home</a> |
+        <a href="~/disclaimer">Disclaimer</a> |
+
+        @if (Request.RawUrl.Contains("logout") || !WebSecurity.IsAuthenticated)
+        {
+            <a href="~/login">Einloggen</a>
+        }
+        else
+        {
+            <a href="~/logout">Ausloggen</a>
+        }
+    </div>
+    <div class="clear"></div>
+</div>

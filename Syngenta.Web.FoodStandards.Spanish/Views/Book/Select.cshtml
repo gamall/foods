@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Seleccionar el nivel de";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@section Banner{
+    <div id="imageRotation" class="darkOrangeBackground"><img class="floatLeft" src="~/images/headers/select-image.jpg" width="960" height="240" alt="" />
+      <div class="clear"></div>
+    </div>
+}
+
+<div id="mainContent" class="select">
+    <div id="col1">
+        <p>
+            La entrega en línea de <strong>&quot;Comprometidos con la seguridad alimentaria y la calidad de los alimentos. Una guía sobre los residuos de los productos de protección de cultivos&quot;</strong> le permite adaptar la producción de folletos individuales de acuerdo a las demandas de sus clientes. Puede seleccionar capítulos individuales o cualquier combinación de los capítulos de las versiones preliminares y / o avanzadas previstas, que pueden ser para guardar e imprimir como formato PDF o enviar por correo electrónico directamente a los clientes. Puede seleccionar algunas páginas de la versión introductoria y otros de la avanzada. El orden en que se colocan en las páginas del libro será el orden en que se imprimen. Puede revisar su libro en cualquier momento durante el proceso.<br />
+        </p>
+    </div>
+    <div id="col2">
+        @using (Html.BeginForm("Select", "Book", FormMethod.Post, new { id = "select-form" }))
+        {
+          <p><strong>Nivel introductorio</strong></p>
+          <p>Proporciona una introducción clara y concisa de los temas clave. Una visión general básica de la temas y cómo las cuestiones complejas interactúan.</p>
+            <p><strong>Descarga un PDF completo de las páginas de nivel introductorio:</strong><br />
+                <span class="marginLeft13">
+                    <a href="~/resources/pdf/HR/intro/SPAN-background-HR.pdf">Alta resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp;
+                    <a href="~/resources/pdf/LR/intro/SPAN-background-LR.pdf">Baja resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+                </span>
+            </p>
+          <p><strong>Pulse para seleccionar las páginas individuales:</strong><br />
+            <span class="marginLeft13">
+                <a href="#" class="intro high" id="butIntroIndividualHigh">Alta resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp; 
+                <a href="#" class="intro low" id="butIntroIndividualLow">Baja resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+            </span>
+          </p>
+          <br />
+          <p><strong>Nivel Avanzado</strong></p>
+          <p>Proporciona información detallada y profunda comprensión de la ciencia de los alrededor del uso de plaguicidas, y las implicaciones prácticas a la cadena alimentaria.</p>
+          <p><strong>Descarga un PDF completo de las páginas de nivel introductorio:</strong><br />
+            <span class="marginLeft13">
+                <a href="~/resources/pdf/HR/advanced/SPAN-advanced-HR.pdf">Alta resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp; 
+                <a href="~/resources/pdf/LR/advanced/SPAN-advanced-LR.pdf">Baja resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+            </span>
+          </p>
+          <p><strong>Pulse para seleccionar las páginas individuales:</strong><br />
+            <span class="marginLeft13">
+                <a href="#" class="advanced high" id="butAdvancedIndividualHigh">Alta resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp; 
+                <a href="#" class="advanced low" id="butAdvancedIndividualLow">Baja resolución <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+            </span>
+          </p>
+            @Html.Hidden("IsFromSelectPage", (object)"1")
+            @Html.Hidden("IsIntro")
+            @Html.Hidden("IsHighQuality")
+        }
+    </div>
+    <div class="clear"></div>
+  </div>
+<div class="clear"></div>
+<div class="height30"></div>
+
+@section Body {
+    <script src="~/scripts/page-specific/select.js" type="text/javascript"></script>
+}

@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20617.1 PREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.Core", "Syngenta.Core\Syngenta.Core.csproj", "{F9A38B07-3B8B-4EC5-A5DB-CC5112222469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.Data", "Syngenta.Data\Syngenta.Data.csproj", "{B8882314-D1D8-4B6F-AA2D-9EF962B96171}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.Web.FoodStandards", "Syngenta.Web.FoodStandards\Syngenta.Web.FoodStandards.csproj", "{6C6AB223-321F-4861-9CE1-AAD803EC2D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.Web.FoodStandards.German", "Syngenta.Web.FoodStandards.German\Syngenta.Web.FoodStandards.German.csproj", "{D6ABD66F-CE6E-49F8-8DE9-FDB28E526BF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.Web.FoodStandards.Spanish", "Syngenta.Web.FoodStandards.Spanish\Syngenta.Web.FoodStandards.Spanish.csproj", "{B009B65A-6C32-49E8-B0B9-F2E39583935E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://webigence.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Syngenta.Core\\Syngenta.Core.csproj
+		SccProjectName1 = Syngenta.Core
+		SccLocalPath1 = Syngenta.Core
+		SccProjectUniqueName2 = Syngenta.Data\\Syngenta.Data.csproj
+		SccProjectName2 = Syngenta.Data
+		SccLocalPath2 = Syngenta.Data
+		SccProjectUniqueName3 = Syngenta.Web.FoodStandards\\Syngenta.Web.FoodStandards.csproj
+		SccProjectName3 = Syngenta.Web.FoodStandards
+		SccLocalPath3 = Syngenta.Web.FoodStandards
+		SccProjectUniqueName4 = Syngenta.Web.FoodStandards.German\\Syngenta.Web.FoodStandards.German.csproj
+		SccProjectName4 = Syngenta.Web.FoodStandards.German
+		SccLocalPath4 = Syngenta.Web.FoodStandards.German
+		SccProjectUniqueName5 = Syngenta.Web.FoodStandards.Spanish\\Syngenta.Web.FoodStandards.Spanish.csproj
+		SccProjectName5 = Syngenta.Web.FoodStandards.Spanish
+		SccLocalPath5 = Syngenta.Web.FoodStandards.Spanish
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9A38B07-3B8B-4EC5-A5DB-CC5112222469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A38B07-3B8B-4EC5-A5DB-CC5112222469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A38B07-3B8B-4EC5-A5DB-CC5112222469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A38B07-3B8B-4EC5-A5DB-CC5112222469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8882314-D1D8-4B6F-AA2D-9EF962B96171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8882314-D1D8-4B6F-AA2D-9EF962B96171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8882314-D1D8-4B6F-AA2D-9EF962B96171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8882314-D1D8-4B6F-AA2D-9EF962B96171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C6AB223-321F-4861-9CE1-AAD803EC2D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C6AB223-321F-4861-9CE1-AAD803EC2D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C6AB223-321F-4861-9CE1-AAD803EC2D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C6AB223-321F-4861-9CE1-AAD803EC2D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6ABD66F-CE6E-49F8-8DE9-FDB28E526BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6ABD66F-CE6E-49F8-8DE9-FDB28E526BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6ABD66F-CE6E-49F8-8DE9-FDB28E526BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6ABD66F-CE6E-49F8-8DE9-FDB28E526BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B009B65A-6C32-49E8-B0B9-F2E39583935E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B009B65A-6C32-49E8-B0B9-F2E39583935E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B009B65A-6C32-49E8-B0B9-F2E39583935E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B009B65A-6C32-49E8-B0B9-F2E39583935E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

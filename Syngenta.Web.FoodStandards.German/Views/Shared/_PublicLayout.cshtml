@@ -1,0 +1,34 @@
+﻿@{    
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@section Script{
+    @RenderSection("Scripts", false)  
+}
+
+@section Header{
+    
+    <div id="logoBar"><img src="~/images/common/syngenta-logo.gif" width="144" height="75" alt="Syngenta" /></div>
+    <div id="primaryNav">
+      <div class="menuItem"><a href="/" class="@(Request.RawUrl == "/de/" ? "current" : "")">Home</a></div>
+      <div class="seperator"></div>
+      <div class="menuItem"><a href="~/register" class="@(Request.RawUrl.Contains("register") ? "current" : "")">Anmelden</a></div>
+      <div class="seperator"></div>
+      <div class="menuItem"><a href="~/login" class="@(Request.RawUrl.Contains("login") ? "current" : "")">Einloggen</a></div>
+      <div id="locator"><a href="http://www.syngenta.com/global/corporate/en/Pages/home.aspx">Global</a></div>
+    </div>
+    <div class="clear"></div>
+    @RenderSection("Banner", false)
+
+}
+
+@RenderBody()
+
+@RenderSection("Body", false)
+<div id="footer">&copy; 2013 Syngenta International AG, Basel, Switzerland</div>
+
+<div class="cookie" style="position: fixed; bottom: 30px; right: 470px; background-color: white; padding: 10px;">
+    <p>We use cookies to help make this website better.</p>
+    <p>By continuing to use this website you are giving consent to cookies being used.</p>
+    <a href="#" id="toggle-cookie" class="button">continue ></a>
+</div>

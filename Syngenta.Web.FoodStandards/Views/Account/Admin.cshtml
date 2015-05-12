@@ -1,0 +1,73 @@
+﻿@model Syngenta.Core.User
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@section Scripts{
+    <script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.placeholder-1.0.6.js"></script>    
+}
+
+@section Banner{
+    <div id="imageRotation" class="darkOrangeBackground"><img class="floatLeft" src="images/headers/admin-image.jpg" width="960" height="240" alt="" />
+      <div class="clear"></div>
+    </div>
+}
+
+<div id="mainContent" class="select">
+    <div id="col1">
+      <h2>Administration</h2>
+      <p><strong>Search and Edit Users</strong></p>
+      @using (Html.BeginForm("Admin", "Account", FormMethod.Post, new { id = "user-search-form" }))
+      {
+         @Html.TextBox("txtSurname", null, new { @class="width275 innerMargin",id = "txtSurname", @holder = "Surname" })
+         @Html.TextBox("txtEmail", null, new { @class="width275 innerMargin", id = "txtEmail", @holder = "Email" })
+        <a href="#" id="butSearch">Search<img src="images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+      }
+      <p class="errorMessage"></p> 
+    </div>
+    <div id="col2">
+      <p><strong>Search Results</strong></p>
+      @using (Html.BeginForm("DisableUser", "Account", FormMethod.Post, new { id = "disable-user-form" }))      
+      {
+        <div class="resultsBlock lastBlock">
+            @*<p>@Html.LabelFor(m => m.Forename) &nbsp; @Html.LabelFor(m => m.Surname) &nbsp; @Html.LabelFor(m => m.Email)</p>*@
+            <p>@Html.TextBoxFor(m => m.Forename) &nbsp; @Html.TextBoxFor(m => m.Surname) &nbsp; @Html.TextBoxFor(m => m.Email)</p>
+            <p>Disable user <span class="text10">(please tick appropriate box)</span> &nbsp;&nbsp;
+                @Html.CheckBoxFor(m => m.IsDisabled)
+            </p>
+        </div>
+        @*<div class="resultsBlock dottedRuleUnder">
+          <p>&lt;&lt;First Name&gt;&gt;&lt;&lt;Surname&gt;&gt; &nbsp;&nbsp;&nbsp; &lt;&lt;Syngenta email address&gt;&gt;<br />
+            Disable user <span class="text10">(please tick appropriate box)</span> &nbsp;&nbsp;
+            <input type="checkbox" name="disable-yes" id="disable-yes" />
+            <label for="disable-yes">Yes</label>
+            &nbsp;
+            <input type="checkbox" name="disable-no" id="disable-no" />
+            <label for="disable-no">No</label>
+          </p>
+        </div>
+        <div class="resultsBlock lastBlock">
+          <p>&lt;&lt;First Name&gt;&gt;&lt;&lt;Surname&gt;&gt; &nbsp;&nbsp;&nbsp; &lt;&lt;Syngenta email address&gt;&gt;<br />
+            Disable user <span class="text10">(please tick appropriate box)</span> &nbsp;&nbsp;
+            <input type="checkbox" name="disable-yes" id="disable-yes" />
+            <label for="disable-yes">Yes</label>
+            &nbsp;
+            <input type="checkbox" name="disable-no" id="disable-no" />
+            <label for="disable-no">No</label>
+          </p>
+        </div>*@
+        <div class="floatLeft">
+            <a href="#" id="butDisableUser">Submit <img src="images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;&nbsp; 
+            <a href="#" id="butCancel">Cancel <img src="images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+        </div>
+        <div class="floatRight resultsPaging">1 | <a href="#">2</a> | <a href="#">3</a> &gt;</div>
+        <div class="clear"></div>
+      }
+    </div>
+    <div class="clear"></div>
+  </div>
+<div class="clear"></div>
+<div class="height30"></div>

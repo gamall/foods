@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Syngenta.Web.FoodStandards.Spanish.MvcApplication" Language="C#" %>

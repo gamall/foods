@@ -1,0 +1,101 @@
+﻿@model Syngenta.Web.FoodStandards.Areas.Admin.Models.AdminUsersPageViewModel
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@section Scripts{
+    <script type="text/javascript" src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery.placeholder-1.0.6.js"></script>    
+}
+
+@section Banner{
+    <div id="imageRotation" class="darkOrangeBackground"><img class="floatLeft" src="~/images/headers/admin-image.jpg" width="960" height="240" alt="" />
+      <div class="clear"></div>
+    </div>
+}
+
+<div id="mainContent" class="select">
+    <div id="col1">
+      <h2>Administration</h2>
+      <p><strong>Search and Edit Users</strong></p>
+      @using (Html.BeginForm("dashboard", "Admin", FormMethod.Post, new { id = "user-search-form", page = ViewBag.CurrentPage }))
+      {
+          <p><input type="text" class="width275 innerMargin" id="Name" name="Name" holder="Surname" value="@ViewBag.Name" autocomplete="off" /></p>
+          <p><input type="text" class="width275 innerMargin" id="Mail" name="Mail" holder="Email" value="@ViewBag.Mail" autocomplete="off" /></p>
+          <p><a href="#" id="butSearch">Search <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a></p>
+      }
+      <p class="errorMessage">@ViewBag.ErrorMessage</p> 
+    </div>
+    <div id="col2">
+      <p><strong>Search Results</strong></p>
+        @using (Html.BeginForm("edituser", "Admin", FormMethod.Post, new { id = "edit-user-form", page = ViewBag.CurrentPage }))      
+        {
+            @Html.Hidden("Name", (object)ViewBag.Name)
+            @Html.Hidden("Mail", (object)ViewBag.Mail)
+            @Html.Hidden("CurrentPage", (object)ViewBag.CurrentPage)
+            
+            if (Model != null && Model.Items.Count > 0)
+            {
+                int count = Model.Items.Count;
+                int i = 0;
+              
+                foreach (Syngenta.Core.User user in Model.Items)
+                {
+                    <div class="resultsBlock @((count == 1 || i == count-1) ? "lastBlock" : "dottedRuleUnder")">
+                    <p class="bold">
+                        @Html.DisplayFor(model => user.Forename) &nbsp; 
+                        @Html.DisplayFor(model => user.Surname) &nbsp; 
+                        @Html.DisplayFor(model => user.Email)
+                    </p>
+                        @Html.Hidden(string.Format("users[{0}].Forename", i), user.Forename)
+                        @Html.Hidden(string.Format("users[{0}].Surname", i), user.Surname)
+                        @Html.Hidden(string.Format("users[{0}].Email", i), user.Email)                
+                    <p>Disable user <span class="text10">(please tick appropriate box)</span> &nbsp;&nbsp; 
+                        @Html.CheckBox(string.Format("users[{0}].IsDisabled", i), user.IsDisabled)
+                    </p>
+                    </div>
+                    i++;
+                }            
+            
+                <div class="floatLeft">
+                    <a href="#" id="butEditUser">Submit <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;&nbsp; 
+                    <a href="#" id="butCancel">Cancel <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+                </div>
+            
+                if (Model.PagedItems.Pages.Count > 1)
+                {
+                    <div class="floatRight resultsPaging">
+                        @{
+                            if (Model.PagedItems.PreviousPageVisible)
+                            {
+                                @Html.ActionLink("<", "dashboard", "admin", new { page = ViewBag.CurrentPage - 1, name = ViewBag.Name, mail = ViewBag.Mail }, new { @class = "gray" })
+                            }
+                        }
+                        @{
+                            foreach (var item in Model.PagedItems.Pages)
+                            {
+                                <span>
+                                @Html.ActionLink(item.Page.ToString(), "dashboard", "admin", new { page = item.Page, name = ViewBag.Name, mail = ViewBag.Mail }, new { @class = (item.Page == ViewBag.CurrentPage) ? "" : "gray" })
+                                @(item.Page == Model.PagedItems.LastPageNumber ? "" : "|")
+                                </span> 
+                            }
+                            
+                        }
+                        @{
+                            if (Model.PagedItems.NextPageVisible)
+                            {
+                                 @Html.ActionLink(">", "dashboard", "admin", new { page = ViewBag.CurrentPage + 1, name = ViewBag.Name, mail = ViewBag.Mail }, new { @class = "gray" })
+                            }
+                        }
+                    </div>                
+                }
+            }
+        }
+       <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+<div class="clear"></div>
+<div class="height30"></div>

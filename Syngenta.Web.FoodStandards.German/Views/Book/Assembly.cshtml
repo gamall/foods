@@ -1,0 +1,91 @@
+﻿@model Syngenta.Core.UserBook
+
+@{
+    ViewBag.Title = "Assembly";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@section Banner{
+
+    <div id="hidden">
+        @Html.Hidden("IntroPageNumber", (object)ViewBag.IntroPageNumber)
+        @Html.Hidden("AdvancedPageNumber", (object)ViewBag.AdvancedPageNumber)
+        @Html.Hidden("SelectedPagesIntro", (object)ViewBag.SelectedPagesIntro)
+        @Html.Hidden("SelectedPagesAdvanced", (object)ViewBag.SelectedPagesAdvanced)
+        @Html.Hidden("SelectedLevel", (object)ViewBag.SelectedLevel)
+    </div>
+
+      <div id="pageAssembly">
+        <p class="levelSelect">            
+            <a id="standardLevelButton" href="#">Einführungs-Level</a>
+            <span id="standardLevelLabel">Einführungs-Level</span> |
+            <a id="advancedLevelButton" href="#">Fortgeschrittenen-Level</a> 
+            <span id="advancedLevelLabel">Fortgeschrittenen-Level</span>
+        </p>
+        <div id="leftArrow" class="floatLeft"><a href="#"><img id="leftSideArrow" src="~/images/common/leftarrowlarge.gif" width="28" height="27" alt="" /></a></div>
+        <div id="leftPageFrame" class="floatLeft">
+          <div id="leftPage"></div>
+          <div class="addPage">
+            <div align="left">
+                <input type="checkbox" name="addleftpage" id="addleftpage" class="leftcheck" />
+              <label for="addleftpage">Klicken Sie hier, um diese Seite Ihrem Buch hinzuzufügen</label>
+            </div>
+          </div>
+        </div>
+        <div id="rightPageFrame" class="floatLeft">
+          <div id="rightPage"></div>
+          <div class="addPage">
+            <div align="right">                
+              <input type="checkbox" name="addrightpage" id="addrightpage" class="rightcheck" />
+              <label for="addrightpage">Klicken Sie hier, um diese Seite Ihrem Buch hinzuzufügen</label>
+            </div>
+          </div>
+        </div>
+        <div id="rightArrow" class="floatLeft"><a href="#"><img id="rightSideArrow" src="~/images/common/rightarrowlarge.gif" width="28" height="27" alt="" /></a></div>
+        <div class="clear"></div>
+        <div id="addLeft"></div>
+        <div id="addRight"></div>
+        <div id="preview" align="center">
+            <p><a id="Preview" href="~/preview">Vorschau meiner von mir gewählten Seiten <img src="~/images/common/greenarrowondarkgrey.gif" width="16" height="15" alt="" /></a></p>
+        </div>        
+      </div>
+
+}
+
+<div id="mainContent" class="complete">
+    <div id="col1">
+        <h2 class="darkGreen">Vervollständigen Sie Ihr Buch</h2>
+        <p>Nach Fertigstellun aller gewählten Seiten, wählen Sie bitte die gewünschte Auflösung der Datei:</p>
+      
+        @Html.Hidden("PreviewPostUrl", Url.Action("Assembly", "Book"))
+        @Html.Hidden("DownloadPostUrl", Url.Action("Download", "Book"))
+
+        @using (Html.BeginForm("Download", "Book", FormMethod.Post, new { id = "assembly-form" }))      
+        {
+            <div class="twoCol floatLeft">
+                @Html.CheckBoxFor(m => m.LowQuality)
+                <label for="LowQuality">Niedrige Auflösung</label>
+                <br />
+                Dieses Format ist für den Versand per E-Mail 
+            </div>
+            <div class="twoCol floatLeft marginLeft20">
+                @Html.CheckBoxFor(m => m.HighQuality)
+                <label for="HighQuality">Hohe Auflösung</label>
+                <br />
+                Dieses Format ist für den Druck
+            </div>
+            <div class="clear"></div>         
+            <p id="errorMessage"></p>
+            <div align="right">
+              <p><a href="#" class="save download" id="butSubmit">Klicken Sie hier, um Ihr Buch zu vervollständigen <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a></p>
+            </div>
+        }
+    </div>
+    <div class="clear"></div>
+  </div>
+<div class="clear"></div>
+<div class="height30"></div>
+
+@section Body {
+    <script src="~/scripts/page-specific/assembly.js" type="text/javascript"></script>
+}

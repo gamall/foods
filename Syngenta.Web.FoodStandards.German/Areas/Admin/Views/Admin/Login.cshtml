@@ -1,0 +1,64 @@
+﻿@model Syngenta.Web.FoodStandards.German.Models.LoginModel
+
+@{
+    ViewBag.Title = "Admin Login";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+@section Banner{
+    <div id="imageRotation" class="darkOrangeBackground"><img class="floatLeft" src="~/images/headers/login-image.jpg" width="640" height="250" alt="" />
+      <div id="introText">
+        <p class="spaceBefore40">Der Leitfaden zu Rückständen von Pflanzenschutzmitteln &#8211; <strong>&#8222;Sicherstellung des Nahrungsangebotes; Sicherheit, Schutz und Qualität&#8220;</strong></strong> &#8211; wurde mit einer innovativen e-Book Publikationstechnologie erstellt, welche es Ihnen ermöglicht, die einzelnen Seiten je nach gewünschtem Themengebiet und nötigem Detailierungsgrad aufzurufen. Sie können Ihre selbst zusammengestellten Versionen, gemäss den Wünschen Ihres Kunden, auswählen, sichern, drucken und per E-Mail versenden.</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+}
+
+  <div id="mainContent" class="login">
+    <div id="col1">
+      <h2>Geben Sie Ihre Login-Daten ein</h2>
+      @using (Html.BeginForm("login", "Admin", FormMethod.Post, new { id = "login-form" }))      
+      {
+        @Html.AntiForgeryToken()        
+
+        <table id="regTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="90" align="left" valign="middle">
+              <label for="email">E-Mail Adresse</label>
+            </td>
+            <td width="285" align="left">
+              @Html.TextBoxFor(m => m.UserName, new { @class = "width275", Name = "Email", Id = "Email", autocomplete = "off" })
+            </td>
+            <td width="15" align="left">&nbsp;</td>
+            <td width="70" align="left">
+              <label for="password">Passwort</label>
+            </td>
+            <td width="285" align="left">
+              @Html.PasswordFor(m => m.Password, new { @class = "width275", Name = "Password", Id = "Password", autocomplete = "off" })
+            </td>
+            <td width="15" align="left">&nbsp;</td>
+            <td align="left">
+                <a href="#" id="butAdminLogin">Senden <img src="~/images/common/orangearrowongrey.gif" width="15" height="15" alt="" /></a> 
+            </td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="right"></td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+          </tr>
+        </table>
+        <p class="errorMessage hide server">@ViewBag.Message</p>
+        <p class="errorMessage hide blank">Bitte geben Sie Ihre E-Mail und Passwort</p>
+        <p class="errorMessage hide incorrect">Die E-Mail-Adresse oder Passwort ist nicht korrekt.</p>
+        @Html.ValidationSummary(true)        
+      }
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="height30"></div>

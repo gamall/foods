@@ -1,0 +1,66 @@
+﻿@model Syngenta.Web.FoodStandards.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+@section Banner{
+    <div id="imageRotation" class="darkOrangeBackground"><img class="floatLeft" src="images/headers/login-image.jpg" width="640" height="250" alt="" />
+      <div id="introText">
+        <p class="spaceBefore40"><strong>Assuring Food Supplies; Safety, Security and Quality – A guide to pesticide residues</strong> has been created using innovative E-book publication technology that enables you to uniquely select pages at the required level of detail on each of the different topic areas. You can select, save, print or email your own different versions, according to your customers' demands. </p>
+        <p>Registered users can login below, using your Syngenta email and password</p>
+        <p><strong>Not yet registered?</strong> <a href="/register">Register Now <img src="images/common/whitearrowonorange.gif" width="15" height="15" alt="" /></a></p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+}
+
+  <div id="mainContent" class="login">
+    <div id="col1">
+      <h2>Enter your login details</h2>
+      @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "login", ReturnUrl = ViewBag.ReturnUrl }))      
+      {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <table id="regTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="90" align="left" valign="middle">
+              <label for="email">Email address</label>
+            </td>
+            <td width="285" align="left">
+              @Html.TextBoxFor(m => m.UserName, new { @class="width275" })
+              @Html.ValidationMessageFor(m => m.UserName)
+            </td>
+            <td width="15" align="left">&nbsp;</td>
+            <td width="70" align="left">
+              <label for="password">Password</label>
+            </td>
+            <td width="285" align="left">
+              @Html.PasswordFor(m => m.Password, new { @class="width275" })
+              @Html.ValidationMessageFor(m => m.Password)
+            </td>
+            <td width="15" align="left">&nbsp;</td>
+            <td align="left"><a href="javascript:{}" onclick="document.getElementById('login').submit(); return false;">Submit <img src="images/common/orangearrowongrey.gif" width="15" height="15" alt="" /></a></td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+            <td align="right" valign="top"><a style="font-weight: normal; color: #878787;" href="forgottenpassword">Forgotten password?</a></td>
+            <td align="left">&nbsp;</td>
+            <td align="left">&nbsp;</td>
+          </tr>
+        </table>
+      }
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="height30"></div>
+
+
+

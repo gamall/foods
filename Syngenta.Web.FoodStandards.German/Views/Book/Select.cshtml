@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Select";
+    Layout = "~/Views/Shared/_PrivateLayout.cshtml";
+}
+
+@section Banner{
+    <div id="imageRotation" class="darkOrangeBackground"><img class="floatLeft" src="~/images/headers/select-image.jpg" width="960" height="240" alt="" />
+      <div class="clear"></div>
+    </div>
+}
+
+<div id="mainContent" class="select">
+    <div id="col1">
+        <p>
+            Die Online Version des Leitfadens zu Rückständen von Pflanzenschutzmitteln &#8211; <strong>&#8222;Die Sicherung der Nahrungsmittelversorgung: Sicherheit und Qualität&#8220;</strong> &#8211; ermöglicht Ihnen die Herstellung individueller Broschüren gemäss den Bedürfnissen Ihres Kunden. Sie können einzelne Kapitel oder eine beliebige Kombination von Kapiteln zusammenstellen, diese als PDF speichern und direkt per <br />
+            E-Mail an Ihren Kunden senden. Sie können sowohl Seiten aus der Einleitung oder aus der Weiterführung selektieren und zusammenstellen. Die Seiten werden in der Reihenfolge gedruckt, in der Sie sie zusammengestellt haben. Sie können die Broschüre während des ganzes Prozesses einsehen und überprüfen.<br />
+        </p>
+    </div>
+    <div id="col2">
+        @using (Html.BeginForm("Select", "Book", FormMethod.Post, new { id = "select-form" }))
+        {
+            <p><strong>Einführungs-Level</strong></p>
+            <p>Einfache Einführung in die wichtigsten Themen. Dieser Level vermittelt einen grundlegenden Überblick über die Themen und gibt Auskunft darüber, wie die komplexten Sachverhalte interagieren.</p>
+            <p>
+                <strong>Downloaden Sie ein vollständiges PDF des Einführungs-Levels:</strong><br />
+                <span class="marginLeft13">
+                    <a href="~/resources/pdf/HR/intro/GER-background-HR.pdf">Hohe Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp;
+                    <a href="~/resources/pdf/LR/intro/GER-background-LR.pdf">Niedrige Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+                </span>
+            </p>
+              <p><strong>Klicken Sie hier, um einzelne Seiten auszuwählen:</strong><br />
+                <span class="marginLeft13">
+                    <a href="#" class="intro high" id="butIntroIndividualHigh">Hohe Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp; 
+                    <a href="#" class="intro low" id="butIntroIndividualLow">Niedrige Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+                </span>
+              </p>
+            <br />
+            <p><strong>Fortgeschrittenen-Level</strong></p>
+            <p>Vermittelt detaillierte Informationen und gründliche Fachkenntnisse im Bereich des Einsatzes von Pestiziden und deren praktische Bedeutung im Zusammenhang mit der Nahrungskette.</p>
+            <p>
+                <strong>Downloaden Sie ein vollständiges PDF des Fortgeschrittenen-Levels:</strong><br />
+                <span class="marginLeft13">
+                    <a href="~/resources/pdf/HR/advanced/GER-advanced-HR.pdf">Hohe Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp;
+                    <a href="~/resources/pdf/LR/advanced/GER-advanced-LR.pdf">Niedrige Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+                </span>
+            </p>
+          <p><strong>Klicken Sie hier, um einzelne Seiten auszuwählen:</strong><br />
+            <span class="marginLeft13">
+                <a href="#" class="advanced high" id="butAdvancedIndividualHigh">Hohe Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a> &nbsp;|&nbsp; 
+                <a href="#" class="advanced low" id="butAdvancedIndividualLow">Niedrige Auflösung <img src="~/images/common/greenarrowongrey.gif" width="15" height="15" alt="" /></a>
+            </span>
+          </p>
+            @Html.Hidden("IsFromSelectPage", (object)"1")
+            @Html.Hidden("IsIntro")
+            @Html.Hidden("IsHighQuality")
+        }
+    </div>
+    <div class="clear"></div>
+  </div>
+<div class="clear"></div>
+<div class="height30"></div>
+
+@section Body {
+    <script src="~/scripts/page-specific/select.js" type="text/javascript"></script>
+}

@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@section Script{
+    @RenderSection("Scripts", false)  
+}
+
+@section Header{
+    
+    <div id="intranetLogoBar">
+        <div id="title" class="floatLeft">
+            <h1><span class="lightGreen fontsize16">my</span><span class="darkGreen fontsize16">Syngenta</span> &nbsp;&nbsp;</h1>
+        </div>
+        <div id="title2" class="floatLeft">
+            <h1>Comprometidos con la seguridad alimentaria y la calidad de los alimentos. Una guía sobre los residuos de los productos de protección de cultivos.</h1>
+        </div>
+        <div class="floatRight"><img src="~/images/intranet/intranet-logo.gif" width="71" height="69" alt="Syngenta" /></div>
+        <div class="clear"></div>
+    </div>
+    <div class="height10"></div>
+    <div class="clear"></div>
+    @RenderSection("Banner", false)
+    <div class="clear"></div>
+}
+
+@RenderBody()
+
+@RenderSection("Body", false)
+
+<div id="intranetFooter">
+    <div class="floatLeft">&copy; 2013 Syngenta International AG, Basel, Switzerland</div>
+    <div class="floatRight">
+        <a href=@(System.Configuration.ConfigurationManager.AppSettings["WebsiteBaseUrl"])>Home</a> |
+        <a href="~/disclaimer">Disclaimer</a> |
+
+        @if (Request.RawUrl.Contains("logout") || !WebSecurity.IsAuthenticated)
+        {
+            <a href="~/login">Iniciar la sesión</a>
+        }
+        else 
+        {            
+            <a href="~/logout">Finalizar la sesión</a>
+        }
+    </div>
+    <div class="clear"></div>
+</div>
